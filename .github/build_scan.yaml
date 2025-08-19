@@ -1,0 +1,24 @@
+steps:
+- uses: actions/checkout@v4
+
+- name: Set up JDK 17
+  uses: actions/setup-java@v3
+  with:
+    java-version: '17'
+    distribution: 'temurin'
+
+- name: Setup Android SDK
+  uses: android-actions/setup-android@v3
+
+
+#- name: Build SampleApplication
+#  run: ./gradlew --no-daemon build
+
+- name: Qwiet AI Scan 
+  uses: elangosenthilnathan/QwietTemplate@main
+  with:
+    shiftleft-access-token: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
+    verbose: true
+    strict: false
+    wait: true
+    importGitHub: false
